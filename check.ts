@@ -1,18 +1,18 @@
-import type { Entry } from "./Entry.ts";
 import type { Diagnostic } from "./diagnostic/Diagnostic.ts";
 import { SuggestPortHelper } from "./diagnostic/SuggestPortHelper.ts";
 import { WarnNotScreamingSnakeCase } from "./diagnostic/WarnNotScreamingSnakeCase.ts";
+import type { Helper } from "./helper/Helper.ts";
 
-export function check(entries: Entry[]) {
+export function check(helpers: Helper[]) {
   const diagnostics: Diagnostic[] = [];
 
-  for (const entry of entries) {
-    if (entry.name !== entry.name.toUpperCase()) {
-      diagnostics.push(new WarnNotScreamingSnakeCase(entry.name));
+  for (const helper of helpers) {
+    if (helper.name !== helper.name.toUpperCase()) {
+      diagnostics.push(new WarnNotScreamingSnakeCase(helper.name));
     }
 
-    if (entry.name.match(/PORT$/)) {
-      diagnostics.push(new SuggestPortHelper(entry.name, entry.type));
+    if (helper.name.match(/PORT$/) && helper.type !== "port") {
+      diagnostics.push(new SuggestPortHelper(helper.name, helper.type));
     }
   }
 
