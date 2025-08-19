@@ -9,7 +9,7 @@ it("warns that environment variables aren't uppercase", () => {
   expect(diagnostics).toHaveLength(1);
   const diagnosis = diagnostics[0].toDiagnosticString();
   expect(diagnosis).toMatchInlineSnapshot(
-    `"The variable "port" is not screaming snake case. Did you mean to use "PORT" instead?"`
+    `"The variable "port" is not screaming snake case. Did you mean to use "PORT" instead?"`,
   );
 });
 
@@ -18,5 +18,7 @@ it("suggests that variables with port in the name should use the port helper", (
   const diagnostics = check(entries);
   expect(diagnostics).toHaveLength(1);
   const diagnosis = diagnostics[0].toDiagnosticString();
-  expect(diagnosis).toMatchInlineSnapshot(`"The variable "MY_PORT" looks like a port number but the "string" helper was used for this variable. Use the "port()" helper for port numbers."`);
+  expect(diagnosis).toMatchInlineSnapshot(
+    `"The variable "MY_PORT" looks like a port number but the "string" helper was used for this variable. Use the "port()" helper for port numbers."`,
+  );
 });

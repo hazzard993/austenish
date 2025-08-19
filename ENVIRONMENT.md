@@ -2,8 +2,8 @@
 
 The `example` app uses **declarative environment variables** powered by **xyz**.
 
-| Name | Usage | Description |
-| - | - | - |
+| Name | Usage    | Description             |
+| ---- | -------- | ----------------------- |
 | PORT | Required | No description provided |
 
 ## PORT

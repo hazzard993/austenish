@@ -3,5 +3,5 @@ export interface Helper {
   name: string;
   description: string;
   examples: string[];
-  toLongDescription(): string;
+  toMarkdownSection(): string;
 }

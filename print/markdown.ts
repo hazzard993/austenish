@@ -6,7 +6,7 @@ export function print(helpers: Helper[], outputFilePath: string) {
   stream.write("# Environment variables\n");
   stream.write("\n");
   stream.write(
-    "The `example` app uses **declarative environment variables** powered by **xyz**.\n"
+    "The `example` app uses **declarative environment variables** powered by **xyz**.\n",
   );
   stream.write("\n");
   stream.write("| Name | Usage | Description |\n");
@@ -20,12 +20,7 @@ export function print(helpers: Helper[], outputFilePath: string) {
   stream.write("\n");
 
   for (const helper of helpers) {
-    stream.write(`## ${helper.name}\n`);
-    stream.write("\n");
-    stream.write(`_${helper.description}_`);
-    stream.write("\n");
-    stream.write("\n");
-    stream.write(helper.toLongDescription());
+    stream.write(helper.toMarkdownSection());
   }
 
   stream.end();

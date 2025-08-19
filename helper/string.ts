@@ -10,12 +10,16 @@ class StringHelper implements Helper {
     this.name = name;
   }
 
-  toLongDescription() {
-    return template.replace("$1", this.name);
+  toMarkdownSection() {
+    return template.replaceAll("$1", this.name).replace("$2", this.description);
   }
 }
 
 const template = `
+## $1
+
+_$2_
+
 The $1 variable is a **required** variable that takes a string.
 `.trim();
 
