@@ -1,6 +1,6 @@
 import type { Diagnostic } from "./Diagnostic.ts";
 
-export class NotScreamingSnakeCase implements Diagnostic {
+export class WarnNotScreamingSnakeCase implements Diagnostic {
   name: string;
 
   constructor(name: string) {
